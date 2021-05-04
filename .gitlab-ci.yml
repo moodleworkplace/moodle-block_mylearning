@@ -50,6 +50,7 @@ jobtest:
   - . check vendor/bin/phpunit --fail-on-risky --disallow-test-output -v lib/tests/externallib_test.php
   - . check vendor/bin/phpunit --fail-on-risky --disallow-test-output -v privacy/tests/provider_test.php
   - . check moodle-plugin-ci phpunit --coverage-text
+  - php admin/tool/behat/cli/init.php --add-core-features-to-theme --parallel=3 --optimize-runs=@block_mylearning
   - . check moodle-plugin-ci behat --suite workplace --profile chrome
   - . check-finish
   except:
