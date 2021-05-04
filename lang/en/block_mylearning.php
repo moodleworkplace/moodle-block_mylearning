@@ -31,6 +31,6 @@
  * @license    Moodle Workplace License, distribution is restricted, contact support@moodle.com
  */
 
-$string['pluginname'] = 'My learning';
 $string['mylearning:addinstance'] = 'Add new "My learning" block';
 $string['mylearning:myaddinstance'] = 'Add new "My learning" block';
+$string['pluginname'] = 'My learning';

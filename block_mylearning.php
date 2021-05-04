@@ -74,7 +74,7 @@ class block_mylearning extends block_base {
      * Allows the block to be added multiple times to a single page
      * @return boolean
      */
-    function instance_allow_multiple() {
+    public function instance_allow_multiple() {
         return false;
     }
 
