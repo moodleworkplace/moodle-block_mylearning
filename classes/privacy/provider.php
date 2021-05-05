@@ -22,16 +22,36 @@
 // and shall prevail.
 
 /**
- * Lang strings for the My learning block.
+ * Privacy class for requesting user data.
  *
  * @package    block_mylearning
- * @author     Mikel Martín <mikel@moodle.com>
- * @copyright  2018 Moodle Pty Ltd <support@moodle.com>
+ * @copyright  2021 Moodle Pty Ltd <support@moodle.com>
+ * @author     2021 Mikel Martín <mikel@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @license    Moodle Workplace License, distribution is restricted, contact support@moodle.com
  */
+namespace block_mylearning\privacy;
 
-$string['mylearning:addinstance'] = 'Add new "My learning" block';
-$string['mylearning:myaddinstance'] = 'Add new "My learning" block';
-$string['pluginname'] = 'My learning';
-$string['privacy:metadata'] = 'The my learning block does not store any personal data.';
+defined('MOODLE_INTERNAL') || die();
+
+/**
+ * Privacy Subsystem implementation for block_mylearning.
+ *
+ * @package    block_mylearning
+ * @copyright  2021 Moodle Pty Ltd <support@moodle.com>
+ * @author     2021 Mikel Martín <mikel@moodle.com>
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @license    Moodle Workplace License, distribution is restricted, contact support@moodle.com
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}
