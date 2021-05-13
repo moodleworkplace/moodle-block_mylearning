@@ -46,9 +46,9 @@ jobtest:
   - . check moodle-plugin-ci savepoints
   - . check moodle-plugin-ci mustache
   - . check moodle-plugin-ci grunt --max-lint-warnings 0
-  - . check vendor/bin/phpunit --fail-on-risky --disallow-test-output -v admin/tool/dataprivacy/tests/metadata_registry_test.php
-  - . check vendor/bin/phpunit --fail-on-risky --disallow-test-output -v lib/tests/externallib_test.php
-  - . check vendor/bin/phpunit --fail-on-risky --disallow-test-output -v privacy/tests/provider_test.php
+  - . check vendor/bin/phpunit --fail-on-risky --disallow-test-output --filter tool_dataprivacy_metadata_registry_testcase
+  - . check vendor/bin/phpunit --fail-on-risky --disallow-test-output --filter core_externallib_testcase
+  - . check vendor/bin/phpunit --fail-on-risky --disallow-test-output --filter test_all_providers_compliant
   - . check moodle-plugin-ci phpunit --coverage-text
   - php admin/tool/behat/cli/init.php --add-core-features-to-theme
   - . check moodle-plugin-ci behat --suite workplace --profile chrome
