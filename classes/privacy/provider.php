@@ -21,18 +21,7 @@
 // Wherever conflicting terms exist, the terms of the MWL are binding
 // and shall prevail.
 
-/**
- * Privacy class for requesting user data.
- *
- * @package    block_mylearning
- * @copyright  2021 Moodle Pty Ltd <support@moodle.com>
- * @author     2021 Mikel Martín <mikel@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @license    Moodle Workplace License, distribution is restricted, contact support@moodle.com
- */
 namespace block_mylearning\privacy;
-
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * Privacy Subsystem implementation for block_mylearning.

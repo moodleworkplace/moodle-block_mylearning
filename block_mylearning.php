@@ -30,18 +30,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @license    Moodle Workplace License, distribution is restricted, contact support@moodle.com
  */
-
-defined('MOODLE_INTERNAL') || die();
-
-/**
- * My learning block class.
- *
- * @package    block_mylearning
- * @author     Mikel Martín <mikel@moodle.com>
- * @copyright  2018 Moodle Pty Ltd <support@moodle.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @license    Moodle Workplace License, distribution is restricted, contact support@moodle.com
- */
 class block_mylearning extends block_base {
 
     /**

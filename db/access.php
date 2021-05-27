@@ -44,11 +44,9 @@ $capabilities = [
         'clonepermissionsfrom' => 'moodle/my:manageblocks'
     ],
     'block/mylearning:addinstance' => [
-        'riskbitmask' => RISK_SPAM | RISK_XSS,
         'captype' => 'write',
-        'contextlevel' => CONTEXT_BLOCK,
+        'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => [
-            'editingteacher' => CAP_ALLOW,
             'manager' => CAP_ALLOW
         ],
 
