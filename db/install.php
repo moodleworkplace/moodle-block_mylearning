@@ -34,8 +34,6 @@
  * @license   Moodle Workplace License, distribution is restricted, contact support@moodle.com
  */
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Custom code to be run on installing the plugin.
  *
