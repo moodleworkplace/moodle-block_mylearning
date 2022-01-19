@@ -38,3 +38,54 @@ Feature: The 'My learning' block allows users to view their learning information
     And I should see "Program2" in the "My learning" "block"
     And I should see "Non-program Course 001" in the "My learning" "block"
     And I should see "Non-program Course 002" in the "My learning" "block"
+
+  @javascript
+  Scenario: Enable 'Programs' course filter option and respect users preferences
+    Given I log in as "admin"
+    And I navigate to "Plugins > Blocks > My learning" in site administration
+    And I set the field "Show" to "Programs"
+    And I press "Save changes"
+    And I log out
+    Then I log in as "user1"
+    And I follow "Dashboard"
+    And I press "Customise this page"
+    And I add the "My learning" block
+    And I should see "Program1" in the "My learning" "block"
+    And I should see "Program2" in the "My learning" "block"
+    And I should not see "Non-program Course 001" in the "My learning" "block"
+    And I should not see "Non-program Course 002" in the "My learning" "block"
+    # Make sure that user preferences prevail over default settings.
+    And I click on "#programs-status-filter-dropdown" "css_element" in the "My learning" "block"
+    And I click on "Courses" "link" in the "My learning" "block"
+    And I should not see "Program1" in the "My learning" "block"
+    And I should not see "Program2" in the "My learning" "block"
+    And I should see "Non-program Course 001" in the "My learning" "block"
+    And I should see "Non-program Course 002" in the "My learning" "block"
+    And I reload the page
+    And I should not see "Program1" in the "My learning" "block"
+    And I should not see "Program2" in the "My learning" "block"
+    And I should see "Non-program Course 001" in the "My learning" "block"
+    And I should see "Non-program Course 002" in the "My learning" "block"
+
+  Scenario: Enable default filter after user preferences are set
+    Given I log in as "user1"
+    When I follow "Dashboard"
+    And I press "Customise this page"
+    And I add the "My learning" block
+    # This will save 'all' status in user preferences.
+    And I should see "Program1" in the "My learning" "block"
+    And I should see "Program2" in the "My learning" "block"
+    And I should see "Non-program Course 001" in the "My learning" "block"
+    And I should see "Non-program Course 002" in the "My learning" "block"
+    And I log out
+    And I log in as "admin"
+    And I navigate to "Plugins > Blocks > My learning" in site administration
+    And I set the field "Show" to "Programs"
+    And I press "Save changes"
+    And I log out
+    Then I log in as "user1"
+    And I follow "Dashboard"
+    And I should see "Program1" in the "My learning" "block"
+    And I should see "Program2" in the "My learning" "block"
+    And I should see "Non-program Course 001" in the "My learning" "block"
+    And I should see "Non-program Course 002" in the "My learning" "block"

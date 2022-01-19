@@ -84,7 +84,7 @@ class block_mylearning extends block_base {
      * @return boolean
      */
     public function has_config() {
-        return false;
+        return true;
     }
 }
 
