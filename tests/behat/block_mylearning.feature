@@ -28,7 +28,7 @@ Feature: The 'My learning' block allows users to view their learning information
   Scenario: View the logged in user block by a logged in user
     Given I log in as "user1"
     When I follow "Dashboard"
-    And I press "Customise this page"
+    And I switch editing mode on
     And I add the "My learning" block
     And I configure the "My learning" block
     And I set the following fields to these values:
@@ -48,7 +48,7 @@ Feature: The 'My learning' block allows users to view their learning information
     And I log out
     Then I log in as "user1"
     And I follow "Dashboard"
-    And I press "Customise this page"
+    And I switch editing mode on
     And I add the "My learning" block
     And I should see "Program1" in the "My learning" "block"
     And I should see "Program2" in the "My learning" "block"
@@ -70,7 +70,7 @@ Feature: The 'My learning' block allows users to view their learning information
   Scenario: Enable default filter after user preferences are set
     Given I log in as "user1"
     When I follow "Dashboard"
-    And I press "Customise this page"
+    And I switch editing mode on
     And I add the "My learning" block
     # This will save 'all' status in user preferences.
     And I should see "Program1" in the "My learning" "block"
