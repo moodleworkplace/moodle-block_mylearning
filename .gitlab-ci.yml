@@ -8,7 +8,7 @@ services:
 
 variables:
   MOODLE_REPO: git@git.in.moodle.com:workplace/workplacedev.git
-  MOODLE_BRANCH: master
+  MOODLE_BRANCH: WORKPLACE_311
   MOODLE_BEHAT_WDHOST: "http://selenium-standalone-chrome:4444/wd/hub"
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: ""
@@ -20,11 +20,11 @@ variables:
 before_script:
 - . prepare-workplace $cibot_sshkey
 - cd $CI_PROJECT_DIR/..
-- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_wp.git
-- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_tenant.git
-- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-theme_workplace.git
-- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_program.git
-- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_certification.git
+- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_wp.git --branch WORKPLACE_311
+- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_tenant.git --branch WORKPLACE_311
+- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-theme_workplace.git --branch WORKPLACE_311
+- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_program.git --branch WORKPLACE_311
+- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_certification.git --branch WORKPLACE_311
 - moodle-plugin-ci install --db-host="$DB_HOST" --no-init -vvv
 - php -S ${IPADDRESS}:8000 -t $CI_PROJECT_DIR/../moodle > /dev/null 2>&1 &
 - cd moodle
@@ -35,7 +35,7 @@ jobtest:
   - . check-start
   - . check workplace_copyrights_and_licenses
   - . check this_plugin_is_part_of "Moodle Workplace https://moodle.com/workplace based on Moodle" --wplicensecomment
-  - . check version_number
+  - . check version_number 20220418
   - . check language_file_sorting
   - . check moodle-plugin-ci phplint
   - . check moodle-plugin-ci phpcpd
