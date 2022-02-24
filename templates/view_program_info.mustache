@@ -1,0 +1,117 @@
+{{!
+    This file is part of Moodle Workplace https://moodle.com/workplace based on Moodle
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Moodle Workplace™ Code is the collection of software scripts
+    (plugins and modifications, and any derivations thereof) that are
+    exclusively owned and licensed by Moodle under the terms of this
+    proprietary Moodle Workplace License ("MWL") alongside Moodle's open
+    software package offering which itself is freely downloadable at
+    "download.moodle.org" and which is provided by Moodle under a single
+    GNU General Public License version 3.0, dated 29 June 2007 ("GPL").
+    MWL is strictly controlled by Moodle Pty Ltd and its certified
+    premium partners. Wherever conflicting terms exist, the terms of the
+    MWL are binding and shall prevail.
+}}
+{{!
+    @template block_mylearning/view_program_info
+
+    Template for showing program details.
+
+    Example context (json):
+    {
+        "id": "1",
+        "image": "http://image",
+        "progress": "50",
+        "fullname": "Name of the program",
+        "description": "Description of the program",
+        "uniqueid": "rAnd0m"
+    }
+}}
+<div class="modal fade programinfomodal" id="programinfomodal{{id}}-{{uniqueid}}" tabindex="-1" role="dialog" aria-labelledby="programinfomodalheader{{id}}" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img alt="" src="{{image}}" class="img-fluid w-100">
+            </div>
+            <div class="modal-body">
+                <div class="px-5 py-4 bg-gray-100">
+                    <span class="element-type">{{#str}}entityprogram, tool_program{{/str}}</span>
+                    <h4 id="programinfomodalheader{{id}}" class="mb-0 modal-title">{{{fullname}}}</h4>
+                </div>
+                <div class="px-5">
+                    <div class="mt-4">
+                        <div class="progress bg-white border">
+                            <div class="progress-bar bar" role="progressbar" aria-valuenow="{{progress}}" style="width: {{progress}}%" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="small">
+                            <strong>{{progress}}</strong>% {{#str}} completed, tool_program {{/str}}
+                        </div>
+                    </div>
+                    {{#certificationcount}}
+                        <div class="programcertifications my-4">
+                            <h5>{{#str}} certifications, tool_program {{/str}}</h5>
+                            {{#origin}}
+                                {{#certificationid}}
+                                    <div class="{{alertstyle}} px-4 py-2 mb-4 d-flex align-items-center font-size-menus">
+                                    <span class="{{iconstyle}} mr-3"
+                                          data-toggle="tooltip"
+                                          data-placement="top"
+                                          title="{{#str}} certificationduedate, tool_program {{/str}}">
+                                        {{#pix}} calendar-o, tool_wp {{/pix}}
+                                    </span>
+                                        <div>
+                                            {{{certificationmsg}}}
+                                        </div>
+                                    </div>
+                                {{/certificationid}}
+                            {{/origin}}
+                        </div>
+                    {{/certificationcount}}
+                    <div class="mt-3">
+                        {{{description}}}
+                    </div>
+                    {{#customfields}}
+                        {{{.}}}
+                    {{/customfields}}
+                    {{#hastags}}
+                        <div class="programtags my-4">
+                            <h5>Tags</h5>
+                            {{#tags}}
+                                <span class="border p-1 text-uppercase font-small my-2 mr-2" data-region="programtags">{{{.}}}</span>
+                            {{/tags}}
+                        </div>
+                    {{/hastags}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                {{^iscompleted}}
+                    {{#ongoingcourseid}}
+                        <a class="btn btn-primary {{^ongoingisenrolled}}enrol_to_course{{/ongoingisenrolled}} {{#viewasmode}}disabled{{/viewasmode}}"
+                           title="{{calltoactionstr}}"
+                           data-programid="{{id}}"
+                           data-courseid="{{ongoingcourseid}}"
+                           role="button"
+                           {{#viewasmode}}aria-disabled="true"{{/viewasmode}}
+                           href="{{config.wwwroot}}/course/view.php?id={{ongoingcourseid}}">
+                        {{calltoactionstr}}
+                        </a>
+                    {{/ongoingcourseid}}
+                {{/iscompleted}}
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">{{#str}} close, tool_program {{/str}}</button>
+            </div>
+        </div>
+    </div>
+</div>

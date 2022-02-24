@@ -25,68 +25,71 @@
 // premium partners. Wherever conflicting terms exist, the terms of the
 // MWL are binding and shall prevail.
 
-use block_mylearning\output\view;
+namespace block_mylearning\external;
+
+use core\external\persistent_exporter;
+use tool_program\persistent\program_set;
 
 /**
- * Contains the class for the "My learning" block.
+ * Class for exporting program set data.
  *
  * @package    block_mylearning
- * @author     Mikel Martín <mikel@moodle.com>
  * @copyright  2018 Moodle Pty Ltd <support@moodle.com>
+ * @author     2018 Mitxel Moriana
  * @license    Moodle Workplace License, distribution is restricted, contact support@moodle.com
  */
-class block_mylearning extends block_base {
-
+class program_set_exporter extends persistent_exporter {
     /**
-     * Init.
-     */
-    public function init() {
-        $this->title = get_string('pluginname', 'block_mylearning');
-    }
-
-    /**
-     * Returns the contents.
+     * Defines the persistent class.
      *
-     * @return stdClass contents of block
+     * @return string
      */
-    public function get_content() {
-        global $OUTPUT;
-
-        if (isset($this->content)) {
-            return $this->content;
-        }
-        $this->content = new stdClass();
-        $view = new view();
-        $this->content->text = html_writer::div($OUTPUT->render($view), '');
-        $this->content->footer = '';
-
-        return $this->content;
+    protected static function define_class(): string {
+        return program_set::class;
     }
 
     /**
-     * Allows the block to be added multiple times to a single page
-     * @return boolean
-     */
-    public function instance_allow_multiple() {
-        return false;
-    }
-
-    /**
-     * Locations where block can be displayed.
+     * Related objects definition.
      *
      * @return array
      */
-    public function applicable_formats() {
-        return ['my' => true];
+    protected static function define_related(): array {
+        return [
+            'context' => 'context',
+        ];
     }
 
     /**
-     * Allow the block to have a configuration page.
+     * Other properties.
      *
-     * @return boolean
+     * @return array
      */
-    public function has_config() {
-        return true;
+    public static function define_other_properties(): array {
+        return [
+            'editablename' => [
+                'type' => PARAM_RAW,
+            ],
+        ];
+    }
+
+    /**
+     * Magic function to return parameters for format_string()
+     *
+     * @return array
+     */
+    protected function get_format_parameters_for_name() {
+        return ['options' => ['escape' => false]];
+    }
+
+    /**
+     * Other values.
+     *
+     * @param \renderer_base $output
+     * @return array
+     */
+    protected function get_other_values(\renderer_base $output): array {
+        return [
+            'editablename' => $this->persistent->get('name'),
+        ];
     }
 }
-

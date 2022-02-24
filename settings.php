@@ -38,29 +38,30 @@ defined('MOODLE_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
     $optionsstatus = [
-        'all' => new lang_string('all', 'tool_program'),
+        'all' => new lang_string('all', 'block_mylearning'),
         'courses' => new lang_string('courses'),
-        'programs' => new lang_string('programs', 'tool_program'),
-        'notcompleted' => new lang_string('notcompleted', 'tool_program'),
-        'completed' => new lang_string('completed', 'tool_program'),
+        'programs' => new lang_string('programs', 'block_mylearning'),
+        'notcompleted' => new lang_string('notcompleted', 'block_mylearning'),
+        'completed' => new lang_string('completed', 'block_mylearning'),
     ];
     $settings->add(new admin_setting_configselect('block_mylearning/show', new lang_string('show'),
                        new lang_string('settingsdescription', 'block_mylearning', new lang_string('show')),
                        'all', $optionsstatus));
 
     $optionssort = [
-        'programname' => new lang_string('name'),
-        'duedate' => new lang_string('conclusiondate', 'tool_program'),
-        'lastaccess' => new lang_string('lastaccessed', 'tool_program'),
+        'mylearningname' => new lang_string('name'),
+        'duedate' => new lang_string('conclusiondate', 'block_mylearning'),
+        'lastaccess' => new lang_string('lastaccessed', 'block_mylearning'),
     ];
     $settings->add(new admin_setting_configselect('block_mylearning/sort', new lang_string('sortby'),
                        new lang_string('settingsdescription', 'block_mylearning', new lang_string('sortby')),
                        'lastaccess', $optionssort));
+
     $optionsview = [
-        'viewcards' => new lang_string('expanded', 'tool_program'),
-        'viewlist' => new lang_string('collapsed', 'tool_program'),
+        'viewcards' => new lang_string('expanded', 'block_mylearning'),
+        'viewlist' => new lang_string('collapsed', 'block_mylearning'),
     ];
-    $settings->add(new admin_setting_configselect('block_mylearning/display', new lang_string('display', 'tool_program'),
-                       new lang_string('settingsdescription', 'block_mylearning', new lang_string('display', 'tool_program')),
+    $settings->add(new admin_setting_configselect('block_mylearning/display', new lang_string('display', 'block_mylearning'),
+                       new lang_string('settingsdescription', 'block_mylearning', new lang_string('display', 'block_mylearning')),
                        'viewcards', $optionsview));
 }

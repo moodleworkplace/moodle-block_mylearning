@@ -1,0 +1,76 @@
+{{!
+    This file is part of Moodle Workplace https://moodle.com/workplace based on Moodle
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Moodle Workplace™ Code is the collection of software scripts
+    (plugins and modifications, and any derivations thereof) that are
+    exclusively owned and licensed by Moodle under the terms of this
+    proprietary Moodle Workplace License ("MWL") alongside Moodle's open
+    software package offering which itself is freely downloadable at
+    "download.moodle.org" and which is provided by Moodle under a single
+    GNU General Public License version 3.0, dated 29 June 2007 ("GPL").
+    MWL is strictly controlled by Moodle Pty Ltd and its certified
+    premium partners. Wherever conflicting terms exist, the terms of the
+    MWL are binding and shall prevail.
+}}
+{{!
+    @template block_mylearning/view_course_info
+
+    Template for showing program course details.
+
+    Example context (json):
+    {
+        "courseid": "1",
+        "courseinfoimage": "http://image",
+        "progress": "50",
+        "courseinfo": "Name of the course<br>Summary of the course",
+        "name": "Name of the course",
+        "uniqueid": "rAnd0m"
+    }
+}}
+<div class="modal fade courseinfomodal" id="courseinfomodal{{courseid}}-{{uniqueid}}" tabindex="-1" role="dialog" aria-labelledby="courseinfomodalheader{{courseid}}" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <img alt="" src="{{courseinfoimage}}" class="img-fluid w-100">
+            </div>
+            <div class="modal-body">
+                <div class="px-5 py-4 bg-gray-100 coursename-container">
+                    <span class="element-type">{{#str}}course{{/str}} · {{{category}}}</span>
+                    <h4 id="courseinfomodalheader{{courseid}}" class="mb-0 modal-title">{{{name}}}</h4>
+                </div>
+                <div class="px-5">
+                    {{#completionenabled}}
+                        <div class="progress-container mt-4">
+                            <div class="progress bg-white border">
+                                <div class="progress-bar bar" role="progressbar" aria-valuenow="{{progress}}" style="width: {{progress}}%" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="small">
+                                <strong>{{progress}}</strong>% {{#str}} completed, block_mylearning {{/str}}
+                            </div>
+                        </div>
+                    {{/completionenabled}}
+                    {{{courseinfo}}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                {{#isenrolled}}
+                    <a class="btn btn-primary" href="{{url}}" role="button">{{#str}} gotocourse, block_mylearning {{/str}}</a>
+                {{/isenrolled}}
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">{{#str}} close, block_mylearning {{/str}}</button>
+            </div>
+        </div>
+    </div>
+</div>

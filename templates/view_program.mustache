@@ -1,0 +1,222 @@
+{{!
+    This file is part of Moodle Workplace https://moodle.com/workplace based on Moodle
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Moodle Workplace™ Code is the collection of software scripts
+    (plugins and modifications, and any derivations thereof) that are
+    exclusively owned and licensed by Moodle under the terms of this
+    proprietary Moodle Workplace License ("MWL") alongside Moodle's open
+    software package offering which itself is freely downloadable at
+    "download.moodle.org" and which is provided by Moodle under a single
+    GNU General Public License version 3.0, dated 29 June 2007 ("GPL").
+    MWL is strictly controlled by Moodle Pty Ltd and its certified
+    premium partners. Wherever conflicting terms exist, the terms of the
+    MWL are binding and shall prevail.
+}}
+{{!
+    @template block_mylearning/view_program
+
+    Template for showing program elements in dashboard.
+
+    Example context (json):
+    {
+        "id": "1",
+        "image": "http://image",
+        "iscompleted": false,
+        "progress": "50",
+        "fullname": "Name of the course",
+        "uniqueid": "rAnd0m"
+    }
+}}
+<div class="dashboard-item" data-lowestduedate="{{lowestduedate}}" data-completed="{{iscompleted}}" data-programwithduedate="{{showduedate}}" data-programclosetoduedate="{{closetoduedate}}"
+     data-lastaccess="{{lastaccess}}" {{#isprogram}}data-programs="1"{{/isprogram}}>
+    <!-- Expanded view -->
+    <div class="view viewcards mb-3 bg-white wp-boxshadow-1 border-radius">
+        <div class="programinfo p-4 border-bottom">
+            <div class="d-flex mb-3">
+                <div data-component="block_mylearning">
+                    <div class="media">
+                        {{#image}}
+                            <div class="programimage rounded mr-3 ml-auto"
+                                 style='background-image: url("{{{image}}}");'>
+                                <span class="sr-only">{{#str}}programimage_help, tool_program{{/str}}</span>
+                            </div>
+                        {{/image}}
+                        <div class="media-body py-1">
+                            <div class="element-type">{{#str}}entityprogram, tool_program{{/str}}</div>
+                            <div class="element-name" data-region="mylearningname">{{{fullname}}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-circle ml-auto d-flex">
+                    {{^viewasmode}}
+                    <button type="button" class="btn btn-info-small" data-toggle="modal" data-target="#programinfomodal{{id}}-{{uniqueid}}" title="{{#str}} programinformation, tool_program {{/str}}">
+                        {{#pix}}info-circle, tool_wp {{/pix}}
+                        <span class="sr-only">{{#str}} programinformation, tool_program {{/str}}</span>
+                    </button>
+                    {{/viewasmode}}
+                    {{> block_mylearning/view_progress_pie }}
+                </div>
+            </div>
+            {{#origin}}
+                {{#certificationid}}
+                    <div class="{{alertstyle}} px-4 py-2 mb-4 d-flex align-items-center font-size-menus">
+                            <span class="{{iconstyle}} mr-3"
+                                  data-toggle="tooltip"
+                                  data-placement="top"
+                                  title="{{#str}} certificationduedate, tool_program {{/str}}">
+                                {{#pix}} calendar-o, tool_wp {{/pix}}
+                            </span>
+                            <div>
+                                {{{certificationmsg}}}
+                            </div>
+                    </div>
+                {{/certificationid}}
+            {{/origin}}
+            <div class="content pt-2 border-top" data-section="block_mylearning" role="contentinfo">
+                <div class="d-flex py-3 align-items-center align-items-stretch">
+                    <div class="bg-gray-200 flex-fill px-4 py-2 font-size-menus d-flex align-items-center">
+                                <span class="mr-2"
+                                      data-toggle="tooltip"
+                                      data-placement="top"
+                                      title="{{#str}} completion, tool_program {{/str}}">
+                                    {{#pix}} check-circle-o, block_mylearning {{/pix}}
+                                </span>
+                        {{status}}
+                    </div>
+                    {{#showduedate}}
+                        <div class="bg-gray-200 px-4 py-2 ml-3 font-size-menus d-flex align-items-center">
+                            {{#origin}}
+                                {{^certificationid}}
+                                    <span class="mr-2"
+                                          data-toggle="tooltip"
+                                          data-placement="top"
+                                          title="{{#str}} programduedate, tool_program {{/str}}">
+                                        {{#pix}} i/duration, core {{/pix}}
+                                    </span>
+                                    {{formatedduedate}}
+                                {{/certificationid}}
+                            {{/origin}}
+                        </div>
+                    {{/showduedate}}
+                    {{^iscompleted}}
+                        {{#ongoingcourseid}}
+                            <a class="btn btn-primary btn-lg ml-3 {{^ongoingisenrolled}}enrol_to_course{{/ongoingisenrolled}} {{#viewasmode}}disabled{{/viewasmode}}"
+                               title="{{calltoactionstr}}"
+                               data-programid="{{id}}"
+                               data-courseid="{{ongoingcourseid}}"
+                               role="button"
+                               {{#viewasmode}}aria-disabled="true"{{/viewasmode}}
+                               href="{{config.wwwroot}}/course/view.php?id={{ongoingcourseid}}">
+                            {{calltoactionstr}}
+                            </a>
+                        {{/ongoingcourseid}}
+                    {{/iscompleted}}
+                </div>
+            </div>
+        </div>
+        {{> block_mylearning/program_recursive_view }}
+    </div>
+    {{^viewasmode}}
+        <!-- Collapsed view -->
+        <div class="view viewlist bg-white border">
+            <div class="d-flex align-items-center py-2 px-3">
+                {{#image}}
+                    <div class="courseimage rounded mr-3 ml-auto"
+                         style='background-image: url("{{{image}}}");'>
+                        <span class="sr-only">{{#str}}programimage_help, tool_program{{/str}}</span>
+                    </div>
+                {{/image}}
+                <div class="media-body">
+                    <div class="element-type">{{#str}}entityprogram, tool_program{{/str}}</div>
+                    <div class="d-flex mt-1">
+                        <a class="ws-toggle text-decoration-none text-gray-800 collapsed d-flex overflow-hidden" data-toggle="collapse" href="#collapsed-content-program-{{id}}-{{uniqueid}}" aria-expanded="false" aria-controls="collapsed-content-program-{{id}}-{{uniqueid}}">
+                            <span class="togglesectionicon collapsed-icon-container">
+                                {{#pix}} t/collapsedcaret, core, {{#str}} expand, moodle {{/str}}{{/pix}}
+                            </span>
+                            <span class="togglesectionicon expanded-icon-container">
+                                {{#pix}} t/expanded, core, {{#str}} collapse, moodle {{/str}}{{/pix}}
+                            </span>
+                            <div class="element-name">{{{fullname}}}</div>
+                        </a>
+                    </div>
+                </div>
+                {{#certificationcount}}
+                <button class="btn alert alert-secondary px-2 py-1 m-0 ml-3 d-flex align-items-center font-color-headings font-size-menus"
+                        data-toggle="modal" data-target="#programinfomodal{{id}}-{{uniqueid}}"
+                        title="{{#str}} certifications, tool_program {{/str}}">
+                    <span class="mr-2">
+                        {{#pix}} calendar-o, tool_wp {{/pix}}
+                    </span>
+                    {{certificationcount}}
+                </button>
+                {{/certificationcount}}
+                <button type="button" class="btn btn-info-small px-1 ml-1" data-toggle="modal" data-target="#programinfomodal{{id}}-{{uniqueid}}" title="{{#str}} programinformation, tool_program {{/str}}">
+                    {{#pix}}info-circle, tool_wp {{/pix}}
+                    <span class="sr-only">{{#str}} programinformation, tool_program {{/str}}</span>
+                </button>
+                <div class="my-auto ml-1">
+                    {{> block_mylearning/view_progress_pie }}
+                </div>
+                <div class="calltoaction ml-3">
+                    {{^iscompleted}}
+                        {{#ongoingcourseid}}
+                            <a class="btn btn-outline-secondary w-100 ml-auto {{^ongoingisenrolled}}enrol_to_course{{/ongoingisenrolled}}"
+                               title="{{calltoactionstr}}"
+                               data-programid="{{id}}"
+                               data-courseid="{{ongoingcourseid}}"
+                               role="button"
+                               href="{{config.wwwroot}}/course/view.php?id={{ongoingcourseid}}">
+                            {{calltoactionstr}}
+                            </a>
+                        {{/ongoingcourseid}}
+                    {{/iscompleted}}
+                </div>
+            </div>
+            <div class="collapse" id="collapsed-content-program-{{id}}-{{uniqueid}}">
+                <div class="d-flex mx-3">
+                    <div class="bg-gray-200 flex-fill px-4 py-2 font-size-menus d-flex align-items-center">
+                                <span class="mr-2"
+                                      data-toggle="tooltip"
+                                      data-placement="top"
+                                      title="{{#str}} completion, tool_program {{/str}}">
+                                    {{#pix}} check-circle-o, block_mylearning {{/pix}}
+                                </span>
+                        {{status}}
+                    </div>
+                    {{#showduedate}}
+                        <div class="bg-gray-200 px-4 py-2 ml-3 font-size-menus d-flex align-items-center">
+                            {{#origin}}
+                                {{^certificationid}}
+                                    <span class="mr-2"
+                                          data-toggle="tooltip"
+                                          data-placement="top"
+                                          title="{{#str}} programduedate, tool_program {{/str}}">
+                                        {{#pix}} i/duration, core {{/pix}}
+                                    </span>
+                                    {{formatedduedate}}
+                                {{/certificationid}}
+                            {{/origin}}
+                        </div>
+                    {{/showduedate}}
+                </div>
+                <div class="m-3 border">
+                    {{> block_mylearning/program_recursive_view }}
+                </div>
+            </div>
+        </div>
+    {{/viewasmode}}
+</div>
+{{> block_mylearning/view_program_info }}

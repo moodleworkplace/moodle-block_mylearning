@@ -34,8 +34,28 @@
  * @license    Moodle Workplace License, distribution is restricted, contact support@moodle.com
  */
 
+$string['all'] = 'All';
+$string['close'] = 'Close';
+$string['collapsed'] = 'Collapsed';
+$string['completed'] = 'Completed';
+$string['conclusiondate'] = 'Conclusion date';
+$string['courseenddate'] = 'End date: {$a}';
+$string['courseinformation'] = 'Course information';
+$string['courses'] = 'Courses';
+$string['coursestartdate'] = 'Start date: {$a}';
+$string['datetypenone'] = 'Not set';
+$string['display'] = 'Display';
+$string['expanded'] = 'Expanded';
+$string['gotocourse'] = 'Go to course';
+$string['lastaccessed'] = 'Last accessed';
 $string['mylearning:addinstance'] = 'Add new "My learning" block';
 $string['mylearning:myaddinstance'] = 'Add new "My learning" block';
+$string['notcompleted'] = 'Not completed';
 $string['pluginname'] = 'My learning';
 $string['privacy:metadata'] = 'The My learning block does not store any personal data.';
+$string['privacy:metadata:preference:block_mylearning_sort_filter'] = 'Stores user selection for mylearning block sorting';
+$string['privacy:metadata:preference:block_mylearning_status_filter'] = 'Stores user selection for mylearning block status filter';
+$string['privacy:metadata:preference:block_mylearning_view_filter'] = 'Stores user selection for mylearning block view';
+$string['programimage_help'] = 'The program image is displayed on the Dashboard.';
+$string['programs'] = 'Programs';
 $string['settingsdescription'] = 'Select the initial value of the "{$a}" field in the "My learning" block for new users.';
