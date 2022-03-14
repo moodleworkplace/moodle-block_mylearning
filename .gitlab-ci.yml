@@ -35,7 +35,7 @@ jobtest:
   - . check-start
   - . check workplace_copyrights_and_licenses
   - . check this_plugin_is_part_of "Moodle Workplace https://moodle.com/workplace based on Moodle" --wplicensecomment
-  - . check version_number 20220418
+  - . check version_number 20220318
   - . check language_file_sorting
   - . check moodle-plugin-ci phplint
   - . check moodle-plugin-ci phpcpd
