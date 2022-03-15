@@ -37,10 +37,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component    = 'block_mylearning';
-$plugin->release      = '3.11.5';
-$plugin->version      = 2022011800;
-$plugin->requires     = 2021051705.00;
+$plugin->release      = '3.11.6';
+$plugin->version      = 2022031500;
+$plugin->requires     = 2021051706.00;
 $plugin->maturity     = MATURITY_STABLE;
 $plugin->dependencies = [
-    'tool_program' => 2022011800,
+    'tool_program' => 2022031500,
 ];
