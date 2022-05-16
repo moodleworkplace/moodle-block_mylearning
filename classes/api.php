@@ -149,17 +149,16 @@ class api {
     /**
      * Returns a list of accessible courses for current user excluding courses enrolled only with the enrol program plugin.
      *
-     * @param bool $isprogrampluginincluded
      * @return stdClass[]
      */
-    public static function get_user_accessible_courses(bool $isprogrampluginincluded = false): array {
+    public static function get_user_accessible_courses(): array {
         global $CFG, $USER;
         require_once($CFG->dirroot . '/course/lib.php');
         $hiddencourses = get_hidden_courses_on_timeline();
-        $workplaceexcludedcourses = $isprogrampluginincluded
-            ? programapi::get_course_ids_with_only_enrol_program_instance($USER->id)
-            : [];
-        $hiddencourses = array_unique(array_merge($hiddencourses, $workplaceexcludedcourses));
+        if (class_exists(programapi::class)) {
+            $workplaceexcludedcourses = programapi::get_course_ids_with_only_enrol_program_instance($USER->id);
+            $hiddencourses = array_unique(array_merge($hiddencourses, $workplaceexcludedcourses));
+        }
         return enrol_get_my_courses('summary, summaryformat, enddate', null, 0, [], false, 0, $hiddencourses);
     }
 

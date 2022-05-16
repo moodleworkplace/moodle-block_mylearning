@@ -123,7 +123,7 @@ class view implements templatable, renderable {
         }
 
         // Get user enrolled courses excluding courses enrolled only with the enrol program plugin.
-        $courses = api::get_user_accessible_courses($isprogrampluginincluded);
+        $courses = api::get_user_accessible_courses();
         $coursescompletion = api::get_user_courses_completion($courses, $this->userid);
         $coursesprogress = api::get_user_courses_progress($this->userid, $courses, $coursescompletion);
         // Add non program courses info to coursesinfo.

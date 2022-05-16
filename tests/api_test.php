@@ -193,7 +193,7 @@ class api_test extends advanced_testcase {
         self::getDataGenerator()->enrol_user($user->id, $course1->id, 'student');
         self::getDataGenerator()->enrol_user($user->id, $course2->id, 'teacher');
 
-        $courses = api::get_user_accessible_courses($user->id);
+        $courses = api::get_user_accessible_courses();
         $courseids = array_map(function($course) {
             return $course->id;
         }, $courses);

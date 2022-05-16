@@ -41,3 +41,6 @@ $plugin->release      = '4.0dev';
 $plugin->version      = 2022042500;
 $plugin->requires     = 2022041900.00;
 $plugin->maturity     = MATURITY_STABLE;
+$plugin->dependencies = [
+    'tool_program' => 2022042000,
+];
