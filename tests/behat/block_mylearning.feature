@@ -55,7 +55,7 @@ Feature: The 'My learning' block allows users to view their learning information
     And I should not see "Non-program Course 001" in the "My learning" "block"
     And I should not see "Non-program Course 002" in the "My learning" "block"
     # Make sure that user preferences prevail over default settings.
-    And I click on "#programs-status-filter-dropdown" "css_element" in the "My learning" "block"
+    And I click on "#mylearning-status-filter-dropdown" "css_element" in the "My learning" "block"
     And I click on "Courses" "link" in the "My learning" "block"
     And I should not see "Program1" in the "My learning" "block"
     And I should not see "Program2" in the "My learning" "block"

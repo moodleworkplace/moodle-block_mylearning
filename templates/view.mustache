@@ -1,0 +1,181 @@
+{{!
+    This file is part of Moodle Workplace https://moodle.com/workplace based on Moodle
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Moodle Workplace™ Code is the collection of software scripts
+    (plugins and modifications, and any derivations thereof) that are
+    exclusively owned and licensed by Moodle under the terms of this
+    proprietary Moodle Workplace License ("MWL") alongside Moodle's open
+    software package offering which itself is freely downloadable at
+    "download.moodle.org" and which is provided by Moodle under a single
+    GNU General Public License version 3.0, dated 29 June 2007 ("GPL").
+    MWL is strictly controlled by Moodle Pty Ltd and its certified
+    premium partners. Wherever conflicting terms exist, the terms of the
+    MWL are binding and shall prevail.
+}}
+{{!
+    @template block_mylearning/view
+
+    Template for showing overview.
+
+    Example context (json):
+    {
+        "programs": [],
+        "programiscompleted": "1",
+        "fullname": "Name",
+        "statuspercentage": "10",
+        "status": "Completed",
+        "formatedduedate": "01/01/2018",
+        "description": "Description text",
+        "image": "url",
+        "uniqueid": "rAnd0m"
+    }
+}}
+<div id="dashboard-learning-{{uniqueid}}" class="dashboard-learning">
+{{#showfilters}}
+    <div class="d-flex flex-wrap mb-3 dashboard-control" data-region="dashboard-controls">
+        <div class="dropdown mylearning-status-filter">
+            <button id="mylearning-status-filter-dropdown" type="button" class="btn btn-outline-secondary dropdown-toggle d-inline-flex align-items-center" data-selected="{{#statusfilterval}}{{statusfilterval}}{{/statusfilterval}}{{^statusfilterval}}all{{/statusfilterval}}" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="{{#str}} show {{/str}}">
+                {{#pix}} i/filter {{/pix}}
+                <span class="d-sm-inline-block" data-active-item-text>
+                    {{#statusfilterstr}}{{statusfilterstr}}{{/statusfilterstr}}{{^statusfilterstr}}{{#str}} all, block_mylearning {{/str}}{{/statusfilterstr}}
+                </span>
+            </button>
+            <ul class="dropdown-menu" data-show-active-item data-active-item-text aria-labelledby="mylearning-status-filter-dropdown">
+                <li>
+                    <a class="dropdown-item" href="#" data-value="all">
+                        {{#str}} all, block_mylearning {{/str}}
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#" data-value="courses">
+                        {{#str}} courses {{/str}}
+                    </a>
+                </li>
+                {{#isprogrampluginincluded}}
+                    <li>
+                        <a class="dropdown-item" href="#" data-value="programs">
+                            {{#str}} programs, block_mylearning {{/str}}
+                        </a>
+                    </li>
+                {{/isprogrampluginincluded}}
+                <li class="dropdown-divider" role="presentation">
+                    <span class="filler">&nbsp;</span>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#" data-value="notcompleted">
+                        {{#str}} notcompleted, block_mylearning {{/str}}
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#" data-value="completed">
+                        {{#str}} completed, block_mylearning {{/str}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="flex-fill">
+            <div class="input-group">
+                <div class="input-group-prepend">
+        <span class="input-group-text pr-0 bg-white">
+            {{#pix}} a/search, core {{/pix}}
+        </span>
+                </div>
+                <input
+                        type="text"
+                        class="form-control border-left-0 col-xs-4"
+                        placeholder="{{#str}} search {{/str}}"
+                        aria-label="{{#str}} search, core_search {{/str}}"
+                        data-region="mylearning-search-input"
+                        name="mylearning-search-input"
+                >
+            </div>
+        </div>
+
+        <div class="dropdown mylearning-sorting {{ sort }}">
+            <button id="mylearning-sorting-dropdown" type="button" class="btn btn-outline-secondary dropdown-toggle d-inline-flex align-items-center" data-selected="{{sort}}" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="{{#str}} sortby {{/str}}">
+                {{#pix}} t/sort_by {{/pix}}
+                <span class="d-sm-inline-block" data-active-item-text>
+                    <span class="buttontext mylearningname">{{#str}} name {{/str}}</span>
+                    <span class="buttontext duedate">{{#str}} conclusiondate, block_mylearning {{/str}}</span>
+                    <span class="buttontext lastaccess">{{#str}} lastaccessed, block_mylearning {{/str}}</span>
+                </span>
+            </button>
+            <ul class="dropdown-menu" data-show-active-item data-active-item-text aria-labelledby="mylearning-sorting-dropdown">
+                <li>
+                    <a class="dropdown-item" href="#" data-value="mylearningname">
+                        {{#str}} name {{/str}}
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#" data-value="duedate">
+                        {{#str}} conclusiondate, block_mylearning {{/str}}
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#" data-value="lastaccess">
+                        {{#str}} lastaccessed, block_mylearning {{/str}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="dropdown mylearning-display {{ view }}">
+            <button id="mylearning-display-dropdown" type="button" class="btn btn-outline-secondary dropdown-toggle d-inline-flex align-items-center" data-selected="{{view}}" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false" title="{{#str}} display, block_mylearning {{/str}}">
+                {{#pix}} a/view_icon_active {{/pix}}
+                <span class="d-sm-inline-block" data-active-item-text>
+            <span class="buttontext viewcards">{{#str}} expanded, block_mylearning {{/str}}</span>
+            <span class="buttontext viewlist">{{#str}} collapsed, block_mylearning {{/str}}</span>
+        </span>
+            </button>
+            <ul class="dropdown-menu" data-show-active-item data-active-item-text aria-labelledby="mylearning-view-dropdown">
+                <li>
+                    <a class="dropdown-item" href="#" data-value="viewcards">
+                        {{#str}} expanded, block_mylearning {{/str}}
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#" data-value="viewlist">
+                        {{#str}} collapsed, block_mylearning {{/str}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+{{/showfilters}}
+    <div class="mylearning-view {{ view }} d-flex flex-column" data-region="mylearning-overview-view" data-showfilters="{{showfilters}}">
+        <div class="nothingtodisplay p-5 text-center hide">
+            <h5 class="text-gray-700">{{#str}} nothingtodisplay, moodle {{/str}}</h5>
+        </div>
+        {{#learningelements}}
+            {{#isprogram}}
+                {{> block_mylearning/view_program }}
+            {{/isprogram}}
+            {{^isprogram}}
+                {{> block_mylearning/view_course }}
+            {{/isprogram}}
+        {{/learningelements}}
+        {{#coursesmodals}}
+            {{> block_mylearning/view_course_info }}
+        {{/coursesmodals}}
+    </div>
+</div>
+{{#js}}
+    require(['block_mylearning/view'], function(s) {
+        s.init('#dashboard-learning-{{uniqueid}}');
+    });
+{{/js}}

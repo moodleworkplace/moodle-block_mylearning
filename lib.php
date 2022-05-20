@@ -25,68 +25,64 @@
 // premium partners. Wherever conflicting terms exist, the terms of the
 // MWL are binding and shall prevail.
 
-use block_mylearning\output\view;
-
 /**
- * Contains the class for the "My learning" block.
+ * Callbacks for plugin block_mylearning
  *
  * @package    block_mylearning
- * @author     Mikel Martín <mikel@moodle.com>
- * @copyright  2018 Moodle Pty Ltd <support@moodle.com>
+ * @copyright  2022 Moodle Pty Ltd <support@moodle.com>
+ * @author     2022 Odei Alba <odei.alba@moodle.com>
  * @license    Moodle Workplace License, distribution is restricted, contact support@moodle.com
  */
-class block_mylearning extends block_base {
 
-    /**
-     * Init.
-     */
-    public function init() {
-        $this->title = get_string('pluginname', 'block_mylearning');
-    }
-
-    /**
-     * Returns the contents.
-     *
-     * @return stdClass contents of block
-     */
-    public function get_content() {
-        global $OUTPUT;
-
-        if (isset($this->content)) {
-            return $this->content;
-        }
-        $this->content = new stdClass();
-        $view = new view();
-        $this->content->text = html_writer::div($OUTPUT->render($view), '');
-        $this->content->footer = '';
-
-        return $this->content;
-    }
-
-    /**
-     * Allows the block to be added multiple times to a single page
-     * @return boolean
-     */
-    public function instance_allow_multiple() {
-        return false;
-    }
-
-    /**
-     * Locations where block can be displayed.
-     *
-     * @return array
-     */
-    public function applicable_formats() {
-        return ['my' => true];
-    }
-
-    /**
-     * Allow the block to have a configuration page.
-     *
-     * @return boolean
-     */
-    public function has_config() {
-        return true;
-    }
+/**
+ * Get icon mapping for font-awesome.
+ */
+function block_mylearning_get_fontawesome_icon_map() {
+    return [
+        'block_mylearning:t/circle' => 'fa-circle',
+        'block_mylearning:check-circle-o' => 'fa-check-circle-o',
+    ];
 }
 
+/**
+ * Get the current user preferences that are available
+ *
+ * @return mixed Array representing current options along with defaults
+ */
+function block_mylearning_user_preferences() {
+    $preferences['block_mylearning_status_filter'] = [
+        'null' => NULL_NOT_ALLOWED,
+        'default' => 'all',
+        'type' => PARAM_ALPHA,
+        'choices' => [
+            'all',
+            'completed',
+            'notcompleted',
+            'courses',
+            'programs',
+        ]
+    ];
+
+    $preferences['block_mylearning_view_filter'] = [
+        'null' => NULL_NOT_ALLOWED,
+        'default' => 'viewcards',
+        'type' => PARAM_ALPHA,
+        'choices' => [
+            'viewcards',
+            'viewlist'
+        ]
+    ];
+
+    $preferences['block_mylearning_sort_filter'] = [
+        'null' => NULL_NOT_ALLOWED,
+        'default' => 'duedate',
+        'type' => PARAM_ALPHA,
+        'choices' => [
+            'duedate',
+            'mylearningname',
+            'lastaccess'
+        ]
+    ];
+
+    return $preferences;
+}

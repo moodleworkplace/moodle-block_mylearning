@@ -1,0 +1,266 @@
+/* MyLearning block */
+.mylearning-view .programimage,
+.mylearning-view .courseimage {
+    width: 75px;
+    height: 55px;
+    background-size: cover;
+}
+.mylearning-view .viewcards .element-type,
+.mylearning-view .viewlist .element-type,
+.mylearning-view .programinfomodal .element-type,
+.mylearning-view .courseinfomodal .element-type {
+    color: #495057;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+.mylearning-view .viewlist .element-type,
+.mylearning-view .viewlist .element-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mylearning-view .viewcards .element-name {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.mylearning-view .viewlist .element-name {
+    display: block;
+    font-size: 1rem;
+}
+.mylearning-view .viewlist .togglesectionicon {
+    width: 1.3rem;
+}
+.mylearning-view .viewlist .togglesectionicon .icon {
+    margin: 0;
+    font-size: 1rem;
+    width: initial;
+}
+.mylearning-view .viewlist .calltoaction {
+    min-width: 10rem;
+}
+.mylearning-view .viewlist .media-body {
+    min-width: 0;
+}
+.mylearning-view .btn-info-small .icon {
+    font-size: 1rem;
+    margin: 0;
+    color: #495057;
+    width: auto;
+}
+.mylearning-view .completed .icon {
+    color: #357a32;
+}
+.mylearning-view .programitem:hover {
+    background-color: #f8f9fa;
+}
+.mylearning-view .programitem:not(.programrow):hover {
+    cursor: pointer;
+}
+.mylearning-view .programitem:hover .middle {
+    opacity: 1;
+}
+.mylearning-view .middle {
+    opacity: 0;
+}
+.mylearning-view .itemrow {
+    min-height: 60px;
+}
+
+@media (min-width: 576px) {
+    .mylearning-view .indent-2 {
+        padding-left: 2rem;
+    }
+    .mylearning-view .indent-3 {
+        padding-left: 4rem;
+    }
+    .mylearning-view .indent-4 {
+        padding-left: 6rem;
+    }
+    .mylearning-view .indent-5 {
+        padding-left: 8rem;
+    }
+    .mylearning-view .indent-6 {
+        padding-left: 10rem;
+    }
+    .mylearning-view .indent-7 {
+        padding-left: 12rem;
+    }
+    .mylearning-view .indent-8 {
+        padding-left: 14rem;
+    }
+    .mylearning-view .indent-9 {
+        padding-left: 16rem;
+    }
+    .mylearning-view .indent-10 {
+        padding-left: 18rem;
+    }
+}
+.mylearning-view .icon {
+    color: #6a737b;
+    font-size: 1.3rem;
+    height: 1.3rem;
+    width: 1.3rem;
+    line-height: 1.3rem;
+    margin: 0.25rem 0 0 0;
+}
+.mylearning-view .icon.small {
+    font-size: 1rem;
+}
+.mylearning-view .togglesectionicon .icon {
+    color: #6a737b;
+    margin-right: 0.7rem;
+}
+.mylearning-view .text-info .icon {
+    color: #008196;
+}
+.mylearning-view .alert .icon {
+    color: inherit;
+}
+.mylearning-view .programprogress {
+    width: 75px;
+}
+.mylearning-view .programprogress.progress-thin {
+    height: 3px;
+}
+.mylearning-view .courseinfomodal .modal-body .progress-container,
+.mylearning-view .courseinfomodal .modal-body .coursename-container {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.mylearning-view .courseinfomodal .modal-header,
+.mylearning-view .programinfomodal .modal-header {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: block;
+    overflow-y: hidden;
+    min-width: 10px;
+    height: 140px;
+    width: 100%;
+}
+.mylearning-view .courseinfomodal .modal-body,
+.mylearning-view .programinfomodal .modal-body {
+    padding: 0;
+    margin: 0;
+    height: 400px;
+    overflow-y: auto;
+}
+.mylearning-view .courseinfomodal .modal-body .coursebox,
+.mylearning-view .programinfomodal .modal-body .coursebox {
+    margin: 0;
+}
+.mylearning-view .courseinfomodal .modal-body .coursebox .info .coursename,
+.mylearning-view .programinfomodal .modal-body .coursebox .info .coursename {
+    /* TODO: WP-1597 Remove this when course renderer is split in different methods. */
+    display: none;
+}
+.mylearning-view .courseinfomodal .modal-body .coursebox .summary,
+.mylearning-view .programinfomodal .modal-body .coursebox .summary {
+    float: initial;
+    width: initial;
+}
+.mylearning-view .courseinfomodal .modal-body .coursebox .courseimage,
+.mylearning-view .programinfomodal .modal-body .coursebox .courseimage {
+    display: none;
+}
+/* Compact specific styles (mobile and region-side-pre block). */
+.block-region:not(#block-region-content) .block_mylearning .dashboard-learning .programimage,
+.block-region:not(#block-region-content) .block_mylearning .dashboard-learning .courseimage {
+    display: none;
+}
+.block-region:not(#block-region-content) .block_mylearning .dashboard-learning .programinfo .content > div {
+    flex-direction: column;
+}
+.block-region:not(#block-region-content) .block_mylearning .dashboard-learning .programinfo .content > div > * {
+    margin: 0 0 0.5rem 0 !important; /* stylelint-disable-line declaration-no-important */
+}
+.block-region:not(#block-region-content) .block_mylearning .dashboard-learning .viewlist .calltoaction {
+    display: none;
+}
+.block-region:not(#block-region-content) .block_mylearning .dashboard-learning .dashboard-control {
+    flex-direction: column;
+}
+.block-region:not(#block-region-content) .block_mylearning .dashboard-learning .dashboard-control .dropdown > button {
+    width: 100%;
+}
+
+@media (max-width: 767.98px) {
+    .dashboard-learning .programimage,
+    .dashboard-learning .courseimage {
+        display: none;
+    }
+    .dashboard-learning .programinfo .content > div {
+        flex-direction: column;
+    }
+    .dashboard-learning .programinfo .content > div > * {
+        margin: 0 0 0.5rem 0 !important; /* stylelint-disable-line declaration-no-important */
+    }
+    .dashboard-learning .viewlist .calltoaction {
+        display: none;
+    }
+    .dashboard-learning .dashboard-control {
+        flex-direction: column;
+    }
+    .dashboard-learning .dashboard-control .dropdown > button {
+        width: 100%;
+    }
+}
+/* Mylearning items visibility control */
+.mylearning-view .dashboard-item > .view {
+    display: none;
+}
+.mylearning-view .dashboard-item > .view.viewlist {
+    margin-bottom: -1px;
+}
+.mylearning-view.viewlist .dashboard-item > .view.viewlist {
+    display: block;
+}
+.mylearning-view:not(.viewlist) .dashboard-item > .view.viewcards {
+    display: block;
+}
+.mylearning-view .search-hidden {
+    display: none;
+}
+.mylearning-view .search-visible {
+    display: block;
+}
+.mylearning-view .filter-visible {
+    display: block;
+}
+.mylearning-view .filter-visible.search-hidden {
+    display: none;
+}
+.mylearning-view .filter-hidden {
+    display: none;
+}
+.mylearning-view .filter-hidden.search-visible {
+    display: none;
+}
+/* Mylearning control form */
+.dashboard-control {
+    gap: 0.5rem;
+}
+.dashboard-control .mylearning-display .buttontext {
+    display: none;
+}
+.dashboard-control .mylearning-display.viewlist .buttontext.viewlist {
+    display: block;
+}
+.dashboard-control .mylearning-display.viewcards .buttontext.viewcards {
+    display: block;
+}
+.dashboard-control .mylearning-sorting .buttontext {
+    display: none;
+}
+.dashboard-control .mylearning-sorting.mylearningname .buttontext.mylearningname {
+    display: block;
+}
+.dashboard-control .mylearning-sorting.duedate .buttontext.duedate {
+    display: block;
+}
+.dashboard-control .mylearning-sorting.mylearningname .buttontext.mylearningname {
+    display: block;
+}
+.dashboard-control .mylearning-sorting.lastaccess .buttontext.lastaccess {
+    display: block;
+}

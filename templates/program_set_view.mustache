@@ -1,0 +1,102 @@
+{{!
+    This file is part of Moodle Workplace https://moodle.com/workplace based on Moodle
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
+    Moodle Workplace™ Code is the collection of software scripts
+    (plugins and modifications, and any derivations thereof) that are
+    exclusively owned and licensed by Moodle under the terms of this
+    proprietary Moodle Workplace License ("MWL") alongside Moodle's open
+    software package offering which itself is freely downloadable at
+    "download.moodle.org" and which is provided by Moodle under a single
+    GNU General Public License version 3.0, dated 29 June 2007 ("GPL").
+    MWL is strictly controlled by Moodle Pty Ltd and its certified
+    premium partners. Wherever conflicting terms exist, the terms of the
+    MWL are binding and shall prevail.
+}}
+{{!
+    @template block_mylearning/program_set_view
+
+    Template for showing overview.
+
+    Example context (json):
+    {
+        "unlocked": "1",
+        "name": "Name",
+        "statusmessage": "completed",
+        "statusmessagestr": "Completed",
+        "showprogress": "1",
+        "completeditems": "5",
+        "completionatleast": "1",
+        "totalitems": "6",
+        "progress": "100",
+        "itemstobecompleted": "4",
+        "uniqueid": "rAnd0m"
+    }
+}}
+
+<div class="programitem px-4 border-bottom border-gray-300" data-region="programs-overview-set-view">
+    <div class="d-flex">
+        <div class="indent indent-{{level}}"></div>
+        <a href="#"
+                class="flex-fill p-2 d-flex ws-toggle text-decoration-none text-gray-800 collapsed"
+                data-component="block_mylearning"
+                data-toggle="collapse"
+                data-target="#dashboard-learning-{{uniqueid}} #set-{{id}}"
+                aria-expanded="false"
+                aria-controls="set-{{id}}"
+                role="button"
+            >
+            <span class="togglesectionicon collapsed-icon-container">
+                {{#pix}} t/collapsedcaret, core, {{#str}} expand, moodle {{/str}}{{/pix}}
+            </span>
+            <span class="togglesectionicon expanded-icon-container">
+                {{#pix}} t/expanded, core, {{#str}} collapse, moodle {{/str}}{{/pix}}
+            </span>
+            <div class="media">
+                <span class="mr-2">
+                    {{^unlocked}}
+                        {{#pix}}t/locked, core, {{#str}} locked, tool_program {{/str}} {{/pix}}
+                    {{/unlocked}}
+                    {{#unlocked}}
+                        {{#iscompleted}}
+                            {{#pix}}folder-open-o, tool_wp, {{#str}} completed, tool_program {{/str}} {{/pix}}
+                        {{/iscompleted}}
+                        {{^iscompleted}}
+                            {{#pix}}a/view_tree_active, core, {{#str}} set, tool_program {{/str}} {{/pix}}
+                        {{/iscompleted}}
+                    {{/unlocked}}
+                </span>
+                <div class="media-body">
+                    {{{name}}}
+                    <div class="text-gray-800 small">
+                        {{statusmessagestr}} {{#showprogress}}({{completeditems}}/{{totalitems}}){{/showprogress}}
+                    </div>
+                </div>
+            </div>
+        </a>
+        <div class="my-auto">
+            {{> block_mylearning/view_progress_pie }}
+        </div>
+    </div>
+</div>
+<div
+    id="set-{{id}}"
+    class="content collapse"
+    aria-labelledby="set-{{id}}"
+    data-section="block_mylearning"
+    aria-expanded="false"
+    role="contentinfo">
+    {{> block_mylearning/program_recursive_view }}
+</div>

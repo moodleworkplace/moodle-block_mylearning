@@ -27,6 +27,9 @@
 
 namespace block_mylearning\privacy;
 
+use core_privacy\local\metadata\collection;
+use core_privacy\local\request\writer;
+
 /**
  * Privacy Subsystem implementation for block_mylearning.
  *
@@ -35,15 +38,52 @@ namespace block_mylearning\privacy;
  * @author     2021 Mikel Martín <mikel@moodle.com>
  * @license    Moodle Workplace License, distribution is restricted, contact support@moodle.com
  */
-class provider implements \core_privacy\local\metadata\null_provider {
+class provider implements
+    // This plugin has data.
+    \core_privacy\local\metadata\provider,
+
+    // This plugin stores data in user preferences.
+    \core_privacy\local\request\user_preference_provider {
 
     /**
-     * Get the language string identifier with the component's language
-     * file to explain why this plugin stores no data.
+     * Return the fields which contain personal data.
      *
-     * @return  string
+     * @param collection $collection a reference to the collection to use to store the metadata.
+     * @return collection the updated collection of metadata items.
      */
-    public static function get_reason() : string {
-        return 'privacy:metadata';
+    public static function get_metadata(collection $collection): collection {
+        // Mylearning block user preferences filter.
+        $collection->add_user_preference('block_mylearning_status_filter',
+            'privacy:metadata:preference:block_mylearning_status_filter');
+        $collection->add_user_preference('block_mylearning_sort_filter',
+            'privacy:metadata:preference:block_mylearning_sort_filter');
+        $collection->add_user_preference('block_mylearning_view_filter',
+            'privacy:metadata:preference:block_mylearning_view_filter');
+
+        return $collection;
+    }
+
+    /**
+     * Export all user preferences for the plugin
+     *
+     * @param int $userid
+     * @return void
+     */
+    public static function export_user_preferences(int $userid): void {
+        $status = get_user_preferences('block_mylearning_status_filter', null, $userid);
+        if ($status) {
+            $str = get_string('privacy:metadata:preference:block_mylearning_status_filter', 'block_mylearning');
+            writer::export_user_preference('block_mylearning', 'block_mylearning_status_filter', $status, $str);
+        }
+        $sort = get_user_preferences('block_mylearning_sort_filter', null, $userid);
+        if ($sort) {
+            $str = get_string('privacy:metadata:preference:block_mylearning_sort_filter', 'block_mylearning');
+            writer::export_user_preference('block_mylearning', 'block_mylearning_sort_filter', $sort, $str);
+        }
+        $view = get_user_preferences('block_mylearning_view_filter', null, $userid);
+        if ($view) {
+            $str = get_string('privacy:metadata:preference:block_mylearning_view_filter', 'block_mylearning');
+            writer::export_user_preference('block_mylearning', 'block_mylearning_view_filter', $view, $str);
+        }
     }
 }
