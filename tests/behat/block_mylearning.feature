@@ -1,4 +1,4 @@
-@block @block_mylearning
+@block @block_mylearning @moodleworkplace
 Feature: The 'My learning' block allows users to view their learning information
   In order to enable the logged in user block
   As a user
