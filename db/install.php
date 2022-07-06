@@ -31,19 +31,5 @@
 function xmldb_block_mylearning_install() {
     global $DB;
 
-    if (!defined('BEHAT_SITE_RUNNING') && !(defined('PHPUNIT_TEST') && PHPUNIT_TEST)) {
-        // During initial installation,
-        // during upgrade from LMS to Workplace,
-        // when installing the block on the Workplace site that has dashboardlearning=1 -
-        // hide the block by default because it will duplicate the learning tab.
-        // (If the setting dashboardlearning does not exist, this means that we are upgrading to workplace
-        // and it will be set to 1 in the end of the upgrade).
-        if (during_initial_install() || !($themeconfig = get_config('theme_workplace')) ||
-                !isset($themeconfig->dashboardlearning) || !empty($themeconfig->dashboardlearning)) {
-            $DB->set_field('block', 'visible', '0', ['name' => 'mylearning']);
-            add_to_config_log('block_visibility', 1, '0', 'mylearning');
-        }
-    }
-
     return true;
 }
