@@ -264,3 +264,1160 @@
 .dashboard-control .mylearning-sorting.lastaccess .buttontext.lastaccess {
     display: block;
 }
+/* Mylearning progress pie*/
+.mylearning-view .progress-wrapper {
+    width: 32px;
+    height: 32px;
+    margin: auto;
+}
+.mylearning-view .progress-wrapper img.icon {
+    width: 32px;
+    height: 32px;
+    vertical-align: top;
+    margin: 0;
+}
+.mylearning-view .pie {
+    width: 100%;
+    height: 100%;
+    background-color: #e9ecef;
+    border-radius: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: auto;
+}
+.mylearning-view .pie-progress {
+    height: 100%;
+    position: absolute;
+    transform: translate(0, -50%) rotate(90deg);
+    transform-origin: 50% 100%;
+    width: 100%;
+}
+.mylearning-view .pie-progress:after,
+.mylearning-view .pie-progress:before {
+    background: #17a2b8;
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+.mylearning-view .pie-progress.progress-0 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-0:before {
+    transform: translate(0, 100%) rotate(0deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-0:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-1 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-1:before {
+    transform: translate(0, 100%) rotate(3.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-1:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-2 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-2:before {
+    transform: translate(0, 100%) rotate(7.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-2:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-3 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-3:before {
+    transform: translate(0, 100%) rotate(10.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-3:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-4 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-4:before {
+    transform: translate(0, 100%) rotate(14.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-4:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-5 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-5:before {
+    transform: translate(0, 100%) rotate(18deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-5:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-6 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-6:before {
+    transform: translate(0, 100%) rotate(21.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-6:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-7 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-7:before {
+    transform: translate(0, 100%) rotate(25.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-7:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-8 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-8:before {
+    transform: translate(0, 100%) rotate(28.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-8:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-9 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-9:before {
+    transform: translate(0, 100%) rotate(32.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-9:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-10 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-10:before {
+    transform: translate(0, 100%) rotate(36deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-10:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-11 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-11:before {
+    transform: translate(0, 100%) rotate(39.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-11:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-12 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-12:before {
+    transform: translate(0, 100%) rotate(43.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-12:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-13 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-13:before {
+    transform: translate(0, 100%) rotate(46.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-13:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-14 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-14:before {
+    transform: translate(0, 100%) rotate(50.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-14:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-15 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-15:before {
+    transform: translate(0, 100%) rotate(54deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-15:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-16 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-16:before {
+    transform: translate(0, 100%) rotate(57.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-16:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-17 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-17:before {
+    transform: translate(0, 100%) rotate(61.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-17:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-18 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-18:before {
+    transform: translate(0, 100%) rotate(64.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-18:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-19 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-19:before {
+    transform: translate(0, 100%) rotate(68.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-19:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-20 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-20:before {
+    transform: translate(0, 100%) rotate(72deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-20:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-21 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-21:before {
+    transform: translate(0, 100%) rotate(75.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-21:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-22 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-22:before {
+    transform: translate(0, 100%) rotate(79.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-22:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-23 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-23:before {
+    transform: translate(0, 100%) rotate(82.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-23:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-24 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-24:before {
+    transform: translate(0, 100%) rotate(86.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-24:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-25 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-25:before {
+    transform: translate(0, 100%) rotate(90deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-25:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-26 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-26:before {
+    transform: translate(0, 100%) rotate(93.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-26:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-27 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-27:before {
+    transform: translate(0, 100%) rotate(97.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-27:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-28 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-28:before {
+    transform: translate(0, 100%) rotate(100.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-28:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-29 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-29:before {
+    transform: translate(0, 100%) rotate(104.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-29:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-30 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-30:before {
+    transform: translate(0, 100%) rotate(108deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-30:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-31 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-31:before {
+    transform: translate(0, 100%) rotate(111.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-31:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-32 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-32:before {
+    transform: translate(0, 100%) rotate(115.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-32:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-33 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-33:before {
+    transform: translate(0, 100%) rotate(118.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-33:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-34 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-34:before {
+    transform: translate(0, 100%) rotate(122.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-34:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-35 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-35:before {
+    transform: translate(0, 100%) rotate(126deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-35:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-36 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-36:before {
+    transform: translate(0, 100%) rotate(129.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-36:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-37 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-37:before {
+    transform: translate(0, 100%) rotate(133.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-37:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-38 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-38:before {
+    transform: translate(0, 100%) rotate(136.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-38:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-39 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-39:before {
+    transform: translate(0, 100%) rotate(140.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-39:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-40 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-40:before {
+    transform: translate(0, 100%) rotate(144deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-40:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-41 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-41:before {
+    transform: translate(0, 100%) rotate(147.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-41:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-42 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-42:before {
+    transform: translate(0, 100%) rotate(151.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-42:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-43 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-43:before {
+    transform: translate(0, 100%) rotate(154.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-43:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-44 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-44:before {
+    transform: translate(0, 100%) rotate(158.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-44:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-45 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-45:before {
+    transform: translate(0, 100%) rotate(162deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-45:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-46 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-46:before {
+    transform: translate(0, 100%) rotate(165.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-46:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-47 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-47:before {
+    transform: translate(0, 100%) rotate(169.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-47:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-48 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-48:before {
+    transform: translate(0, 100%) rotate(172.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-48:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-49 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-49:before {
+    transform: translate(0, 100%) rotate(176.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-49:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-50 {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 1;
+}
+.mylearning-view .pie-progress.progress-50:before {
+    transform: translate(0, 100%) rotate(180deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-50:after {
+    opacity: 0;
+}
+.mylearning-view .pie-progress.progress-51 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-51:before {
+    transform: translate(0, 100%) rotate(183.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-51:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-52 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-52:before {
+    transform: translate(0, 100%) rotate(187.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-52:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-53 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-53:before {
+    transform: translate(0, 100%) rotate(190.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-53:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-54 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-54:before {
+    transform: translate(0, 100%) rotate(194.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-54:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-55 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-55:before {
+    transform: translate(0, 100%) rotate(198deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-55:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-56 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-56:before {
+    transform: translate(0, 100%) rotate(201.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-56:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-57 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-57:before {
+    transform: translate(0, 100%) rotate(205.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-57:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-58 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-58:before {
+    transform: translate(0, 100%) rotate(208.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-58:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-59 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-59:before {
+    transform: translate(0, 100%) rotate(212.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-59:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-60 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-60:before {
+    transform: translate(0, 100%) rotate(216deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-60:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-61 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-61:before {
+    transform: translate(0, 100%) rotate(219.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-61:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-62 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-62:before {
+    transform: translate(0, 100%) rotate(223.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-62:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-63 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-63:before {
+    transform: translate(0, 100%) rotate(226.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-63:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-64 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-64:before {
+    transform: translate(0, 100%) rotate(230.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-64:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-65 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-65:before {
+    transform: translate(0, 100%) rotate(234deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-65:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-66 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-66:before {
+    transform: translate(0, 100%) rotate(237.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-66:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-67 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-67:before {
+    transform: translate(0, 100%) rotate(241.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-67:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-68 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-68:before {
+    transform: translate(0, 100%) rotate(244.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-68:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-69 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-69:before {
+    transform: translate(0, 100%) rotate(248.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-69:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-70 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-70:before {
+    transform: translate(0, 100%) rotate(252deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-70:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-71 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-71:before {
+    transform: translate(0, 100%) rotate(255.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-71:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-72 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-72:before {
+    transform: translate(0, 100%) rotate(259.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-72:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-73 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-73:before {
+    transform: translate(0, 100%) rotate(262.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-73:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-74 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-74:before {
+    transform: translate(0, 100%) rotate(266.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-74:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-75 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-75:before {
+    transform: translate(0, 100%) rotate(270deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-75:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-76 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-76:before {
+    transform: translate(0, 100%) rotate(273.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-76:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-77 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-77:before {
+    transform: translate(0, 100%) rotate(277.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-77:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-78 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-78:before {
+    transform: translate(0, 100%) rotate(280.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-78:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-79 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-79:before {
+    transform: translate(0, 100%) rotate(284.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-79:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-80 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-80:before {
+    transform: translate(0, 100%) rotate(288deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-80:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-81 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-81:before {
+    transform: translate(0, 100%) rotate(291.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-81:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-82 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-82:before {
+    transform: translate(0, 100%) rotate(295.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-82:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-83 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-83:before {
+    transform: translate(0, 100%) rotate(298.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-83:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-84 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-84:before {
+    transform: translate(0, 100%) rotate(302.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-84:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-85 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-85:before {
+    transform: translate(0, 100%) rotate(306deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-85:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-86 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-86:before {
+    transform: translate(0, 100%) rotate(309.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-86:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-87 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-87:before {
+    transform: translate(0, 100%) rotate(313.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-87:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-88 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-88:before {
+    transform: translate(0, 100%) rotate(316.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-88:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-89 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-89:before {
+    transform: translate(0, 100%) rotate(320.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-89:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-90 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-90:before {
+    transform: translate(0, 100%) rotate(324deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-90:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-91 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-91:before {
+    transform: translate(0, 100%) rotate(327.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-91:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-92 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-92:before {
+    transform: translate(0, 100%) rotate(331.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-92:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-93 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-93:before {
+    transform: translate(0, 100%) rotate(334.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-93:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-94 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-94:before {
+    transform: translate(0, 100%) rotate(338.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-94:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-95 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-95:before {
+    transform: translate(0, 100%) rotate(342deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-95:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-96 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-96:before {
+    transform: translate(0, 100%) rotate(345.6deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-96:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-97 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-97:before {
+    transform: translate(0, 100%) rotate(349.2deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-97:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-98 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-98:before {
+    transform: translate(0, 100%) rotate(352.8deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-98:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-99 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-99:before {
+    transform: translate(0, 100%) rotate(356.4deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-99:after {
+    opacity: 1;
+}
+.mylearning-view .pie-progress.progress-100 {
+    clip-path: polygon(-100% -100%, 200% -100%, 200% 200%, -100% 200%);
+    z-index: 2;
+}
+.mylearning-view .pie-progress.progress-100:before {
+    transform: translate(0, 100%) rotate(360deg);
+    transform-origin: 50% 0%;
+}
+.mylearning-view .pie-progress.progress-100:after {
+    opacity: 1;
+}
+.mylearning-view .programitem .progress-wrapper,
+.mylearning-view .viewlist .progress-wrapper {
+    width: 16px;
+    height: 16px;
+}
+.mylearning-view .programitem .progress-wrapper img.icon,
+.mylearning-view .viewlist .progress-wrapper img.icon {
+    width: 16px;
+    height: 16px;
+}
