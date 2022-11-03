@@ -29,8 +29,8 @@ use renderable;
 use renderer_base;
 use stdClass;
 use templatable;
-use tool_certification\api as certificationapi;
-use tool_program\api as programapi;
+use tool_certification\api as certification_api;
+use tool_program\api as program_api;
 
 /**
  * Class view
@@ -89,12 +89,12 @@ class view implements templatable, renderable {
         if ($isprogrampluginincluded) {
             $iscertpluginincluded = (bool) core_component::get_component_directory('tool_certification');
             if ($iscertpluginincluded) {
-                $certifications = certificationapi::get_certifications_by_userid($this->userid);
-                $certallocations = certificationapi::get_user_allocations($this->userid);
+                $certifications = certification_api::get_certifications_by_userid($this->userid);
+                $certallocations = certification_api::get_user_allocations($this->userid);
             }
-            $programs = programapi::get_user_accessible_programs($this->userid);
-            $programstreeprogress = programapi::get_programs_tree_progress($programs, $this->userid);
-            $programsallocations = programapi::get_user_allocations($this->userid);
+            $programs = program_api::get_user_accessible_programs($this->userid);
+            $programstreeprogress = api::get_programs_tree_progress($programs, $this->userid);
+            $programsallocations = program_api::get_user_allocations($this->userid);
 
             // Add program courses info to coursesinfo.
             foreach ($programstreeprogress as $programtree) {
@@ -168,7 +168,7 @@ class view implements templatable, renderable {
         foreach ($allocations as $allocation) {
             $allocationid = $allocation->get('id');
             $certificationid = $allocation->get('certificationid');
-            $statuses = certificationapi::get_user_allocation_status($certificationid, $this->userid);
+            $statuses = certification_api::get_user_allocation_status($certificationid, $this->userid);
             $status[$allocationid] = $statuses[0]['status'] ?? -1;
         }
         return $status;
@@ -184,7 +184,7 @@ class view implements templatable, renderable {
         $completions = [];
         foreach ($certifications as $certification) {
             $certid = $certification->get('id');
-            $completion = certificationapi::get_last_completion_record($this->userid, $certid);
+            $completion = certification_api::get_last_completion_record($this->userid, $certid);
             if ($completion) {
                 $completions[$certid] = $completion;
             }
