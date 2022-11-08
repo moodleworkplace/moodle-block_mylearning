@@ -169,7 +169,7 @@ class view implements templatable, renderable {
             $allocationid = $allocation->get('id');
             $certificationid = $allocation->get('certificationid');
             $statuses = certificationapi::get_user_allocation_status($certificationid, $this->userid);
-            $status[$allocationid] = $statuses[0]['statusint'] ?? -1;
+            $status[$allocationid] = $statuses[0]['status'] ?? -1;
         }
         return $status;
     }
