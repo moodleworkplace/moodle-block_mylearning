@@ -19,6 +19,7 @@ namespace block_mylearning;
 use core_completion\progress;
 use stdClass;
 use tool_program\api as programapi;
+use tool_program\program_tree_progress;
 
 /**
  * Class api
@@ -151,4 +152,20 @@ class api {
         return enrol_get_my_courses('summary, summaryformat, enddate', null, 0, [], false, 0, $hiddencourses);
     }
 
+    /**
+     * Get all programs tree progress.
+     *
+     * @param array $programs
+     * @param int $userid
+     * @return array
+     */
+    public static function get_programs_tree_progress(array $programs, int $userid): array {
+        $programstreeprogress = [];
+        if ($programs) {
+            foreach ($programs as $program) {
+                $programstreeprogress[$program->get('id')] = new program_tree_progress($program, $userid);
+            }
+        }
+        return $programstreeprogress;
+    }
 }

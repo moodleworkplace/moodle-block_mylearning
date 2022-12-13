@@ -18,6 +18,8 @@ namespace block_mylearning;
 
 use advanced_testcase;
 use completion_completion;
+use tool_program\program_tree_progress;
+use tool_program_generator;
 
 /**
  * Tests for the api class methods.
@@ -189,5 +191,27 @@ class api_test extends advanced_testcase {
 
         $this->assertCount(2, $courses);
         $this->assertEqualsCanonicalizing([$course1->id, $course2->id], $courseids);
+    }
+
+    /**
+     * Test get_programs_tree_progress api method.
+     */
+    public function test_get_programs_tree_progress(): void {
+        /** @var tool_program_generator $programgenerator */
+        $programgenerator = self::getDataGenerator()->get_plugin_generator('tool_program');
+
+        $program = $programgenerator->generate_program();
+        $programid = $program->get('id');
+        $program2 = $programgenerator->generate_program();
+        $program2id = $program2->get('id');
+        $user = self::getDataGenerator()->create_user();
+        $userid = $user->id;
+        $programgenerator->allocate_user_to_program($programid, $userid);
+        $programgenerator->allocate_user_to_program($program2id, $userid);
+        $treeprogress = api::get_programs_tree_progress([$program, $program2], $userid);
+        $programtreeprogress = new program_tree_progress($program, $userid);
+
+        $this->assertEquals($programtreeprogress, $treeprogress[$programid]);
+        $this->assertEqualsCanonicalizing([$programid, $program2id], array_keys($treeprogress));
     }
 }
