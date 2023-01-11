@@ -8,7 +8,9 @@ services:
 
 variables:
   MOODLE_REPO: git@git.in.moodle.com:workplace/workplacedev.git
-  MOODLE_BRANCH: master
+  MOODLE_BRANCH_WORKPLACE401R: master
+  MOODLE_BRANCH_WORKPLACE401S: WORKPLACE_401
+  MOODLE_BRANCH_WORKPLACE400: WORKPLACE_400
   MOODLE_BEHAT_WDHOST: "http://selenium-standalone-chrome:4444/wd/hub"
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: ""
@@ -18,6 +20,7 @@ variables:
 #  DB: "mysqli"
 
 before_script:
+- export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE401R
 - . prepare-workplace $cibot_sshkey
 - cd $CI_PROJECT_DIR/..
 - moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_wp.git
@@ -57,3 +60,44 @@ jobtest:
   - . check-finish
   except:
   - tags
+
+.scriptshorttest: &scriptshorttest
+  script:
+    - . prepare-workplace $cibot_sshkey
+    - cd $CI_PROJECT_DIR/..
+    - moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_wp.git --branch $MOODLE_BRANCH
+    - moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_tenant.git --branch $MOODLE_BRANCH
+    - moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-theme_workplace.git --branch $MOODLE_BRANCH
+    - moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_program.git --branch $MOODLE_BRANCH
+    - moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_certification.git --branch $MOODLE_BRANCH
+    - moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-enrol_program.git --branch $MOODLE_BRANCH
+    - if [ "$INCLUDERB" == "1" ]; then moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_reportbuilder.git --branch $MOODLE_BRANCH ; fi
+    - moodle-plugin-ci install --db-host="$DB_HOST" --no-init -vvv
+    - cd moodle
+    - php admin/tool/phpunit/cli/init.php
+    - php admin/tool/phpunit/cli/util.php --buildcomponentconfigs
+    - php -S ${IPADDRESS}:8000 -t $CI_PROJECT_DIR/../moodle > /dev/null 2>&1 &
+    - php admin/tool/behat/cli/init.php --add-core-features-to-theme --parallel=3 --optimize-runs=@block_mylearning
+    - . check-start
+    - . check moodle-plugin-ci phpunit --coverage-text --fail-on-warning
+    - . check moodle-plugin-ci behat --suite default --profile chrome
+    - . check-finish
+
+wp401s:
+  before_script:
+    - export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE401S
+  <<: *scriptshorttest
+  except:
+    - master
+    - tags
+    - /^WORKPLACE_\d+$/
+
+wp400:
+  before_script:
+    - export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE400
+    - export INCLUDERB=1
+  <<: *scriptshorttest
+  except:
+    - master
+    - tags
+    - /^WORKPLACE_\d+$/
