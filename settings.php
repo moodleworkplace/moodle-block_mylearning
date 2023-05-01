@@ -23,16 +23,13 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
  */
 
+use block_mylearning\api;
+
 defined('MOODLE_INTERNAL') || die;
 
 if ($ADMIN->fulltree) {
-    $optionsstatus = [
-        'all' => new lang_string('all', 'block_mylearning'),
-        'courses' => new lang_string('courses'),
-        'programs' => new lang_string('programs', 'block_mylearning'),
-        'notcompleted' => new lang_string('notcompleted', 'block_mylearning'),
-        'completed' => new lang_string('completed', 'block_mylearning'),
-    ];
+
+    $optionsstatus = api::get_status_filter_options();
     $settings->add(new admin_setting_configselect('block_mylearning/show', new lang_string('show'),
                        new lang_string('settingsdescription', 'block_mylearning', new lang_string('show')),
                        'all', $optionsstatus));

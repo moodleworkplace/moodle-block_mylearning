@@ -71,13 +71,18 @@ class view implements templatable, renderable {
 
         // Get user preference values.
         $userpreferencesstatus = get_user_preferences('block_mylearning_status_filter', $config->show);
-        $userpreferencesstatus = !$isprogrampluginincluded && $userpreferencesstatus === 'programs'
-                ? 'all'
-                : $userpreferencesstatus;
+
+        // In case that current 'block_mylearning_status_filter' value stored is 'programs' and tool_program don`t exists or,
+        // it has not a valid string, we need to set a valid value option (config 'show' value) as user preference.
+        if ((!$isprogrampluginincluded && $userpreferencesstatus === 'programs') ||
+                !array_key_exists($userpreferencesstatus, api::get_status_filter_options())) {
+            $userpreferencesstatus = $config->show;
+        }
+
         $userpreferencesview = get_user_preferences('block_mylearning_view_filter', $config->display);
         $userpreferencessort = get_user_preferences('block_mylearning_sort_filter', $config->sort);
 
-        // Default empty arrays when plrogram plugin is not installed.
+        // Default empty arrays when program plugin is not installed.
         $certifications = [];
         $certallocations = [];
         $programs = [];
