@@ -17,6 +17,7 @@
 namespace block_mylearning;
 
 use core_completion\progress;
+use lang_string;
 use stdClass;
 use tool_program\api as programapi;
 use tool_program\program_tree_progress;
@@ -167,5 +168,20 @@ class api {
             }
         }
         return $programstreeprogress;
+    }
+
+    /**
+     * Get the status filters options.
+     *
+     * @return lang_string[]
+     */
+    public static function get_status_filter_options(): array {
+        return [
+            'all' => new lang_string('all', 'block_mylearning'),
+            'courses' => new lang_string('courses'),
+            'programs' => new lang_string('programs', 'block_mylearning'),
+            'notcompleted' => new lang_string('notcompleted', 'block_mylearning'),
+            'completed' => new lang_string('completed', 'block_mylearning'),
+        ];
     }
 }
