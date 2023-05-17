@@ -163,7 +163,7 @@ class program_tree_progress_exporter extends exporter {
                     }
                 }
             }
-            $exported->calltoactionstr = get_string($exported->calltoaction, 'tool_program');
+            $exported->calltoactionstr = get_string($exported->calltoaction, 'block_mylearning');
         }
     }
 
