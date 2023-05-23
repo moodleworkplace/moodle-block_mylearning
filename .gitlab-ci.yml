@@ -36,6 +36,7 @@ before_script:
 jobtest:
   script:
   - php admin/tool/phpunit/cli/init.php
+  - php admin/tool/behat/cli/init.php --add-core-features-to-theme
   - . check-start
   - . check no_workplace_licenses
   - . check this_plugin_is_part_of "the block_mylearning plugin for Moodle - http://moodle.org/" --nowplicensecomment
@@ -55,7 +56,6 @@ jobtest:
   - . check vendor/bin/phpunit --fail-on-risky --disallow-test-output --filter test_all_external_info
   - . check vendor/bin/phpunit --fail-on-risky --disallow-test-output --testsuite core_privacy_testsuite --filter provider_test
   - . check moodle-plugin-ci phpunit --coverage-text --fail-on-warning
-  - php admin/tool/behat/cli/init.php --add-core-features-to-theme
   - . check moodle-plugin-ci behat --suite workplace --profile chrome
   - . check-finish
   except:
