@@ -1,5 +1,9 @@
 # Changelog
 
+## 4.2 - 2023-05-30
+### Changed
+- Added strings that were previously used from tool_program.
+
 ## 4.1.3 - 2023-04-25
 ### Changed
 - Correct screenreader text for course/program image
