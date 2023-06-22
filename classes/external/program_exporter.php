@@ -312,10 +312,6 @@ class program_exporter extends exporter {
      */
     private function export_program_image(program $program, stdClass $exportedprogram): void {
         $exportedprogram->image = $program->get_image_url();
-        // If program has no image set just show random image pattern.
-        if (!$exportedprogram->image) {
-            $exportedprogram->image = programapi::get_program_pattern($program->get('id'));
-        }
     }
 
     /**
