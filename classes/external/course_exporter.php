@@ -91,7 +91,7 @@ class course_exporter extends exporter {
                 'type' => PARAM_BOOL,
             ],
             'lastaccess' => [
-                'type' => PARAM_INT
+                'type' => PARAM_INT,
             ],
             'lowestduedate' => [
                 'type' => PARAM_INT,

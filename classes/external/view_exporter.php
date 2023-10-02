@@ -107,7 +107,7 @@ class view_exporter extends exporter {
             ],
             'isprogrampluginincluded' => [
                 'type' => PARAM_BOOL,
-            ]
+            ],
         ];
     }
 
@@ -253,7 +253,7 @@ class view_exporter extends exporter {
             'view' => $view,
             'sort' => $sort,
             'coursesmodals' => $coursesmodals,
-            'isprogrampluginincluded' => $isprogrampluginincluded
+            'isprogrampluginincluded' => $isprogrampluginincluded,
         ];
     }
 

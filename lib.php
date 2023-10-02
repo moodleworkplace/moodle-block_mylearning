@@ -49,7 +49,7 @@ function block_mylearning_user_preferences() {
             'notcompleted',
             'courses',
             'programs',
-        ]
+        ],
     ];
 
     $preferences['block_mylearning_view_filter'] = [
@@ -58,8 +58,8 @@ function block_mylearning_user_preferences() {
         'type' => PARAM_ALPHA,
         'choices' => [
             'viewcards',
-            'viewlist'
-        ]
+            'viewlist',
+        ],
     ];
 
     $preferences['block_mylearning_sort_filter'] = [
@@ -69,8 +69,8 @@ function block_mylearning_user_preferences() {
         'choices' => [
             'duedate',
             'mylearningname',
-            'lastaccess'
-        ]
+            'lastaccess',
+        ],
     ];
 
     return $preferences;

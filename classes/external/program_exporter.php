@@ -135,7 +135,7 @@ class program_exporter extends exporter {
                 'type' => PARAM_INT,
             ],
             'lastaccess' => [
-                'type' => PARAM_INT
+                'type' => PARAM_INT,
             ],
         ];
     }
@@ -287,7 +287,7 @@ class program_exporter extends exporter {
             'context' => $context,
             'user' => $user,
             'programtreeprogress' => $programtreeprogress,
-            'programenrolledcourses' => $programenrolledcourses
+            'programenrolledcourses' => $programenrolledcourses,
         ]);
         $baseset = $exporter->export($output)->parentset;
         $exporteddata->items = $baseset->items;
