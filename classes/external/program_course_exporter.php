@@ -50,7 +50,7 @@ class program_course_exporter extends persistent_exporter {
         return [
             'context' => 'context',
             'programid' => 'int',
-            'course' => 'stdClass'
+            'course' => 'stdClass',
         ];
     }
 
@@ -62,16 +62,16 @@ class program_course_exporter extends persistent_exporter {
     protected static function define_other_properties(): array {
         return [
             'name' => [
-                'type' => PARAM_TEXT
+                'type' => PARAM_TEXT,
             ],
             'programid' => [
-                'type' => PARAM_INT
+                'type' => PARAM_INT,
             ],
             'parentsetid' => [
-                'type' => PARAM_INT
+                'type' => PARAM_INT,
             ],
             'url' => [
-                'type' => PARAM_URL
+                'type' => PARAM_URL,
             ],
             'items' => [
                 'type' => PARAM_RAW,
@@ -79,7 +79,7 @@ class program_course_exporter extends persistent_exporter {
                 'optional' => true,
             ],
             'warning' => [
-                'type' => PARAM_RAW
+                'type' => PARAM_RAW,
             ],
         ];
     }

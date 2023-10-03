@@ -110,7 +110,7 @@ class view implements templatable, renderable {
                         'course' => $programcourse['course'],
                         'completionenabled' => $programcourse['completionenabled'],
                         'progress' => $programcourse['progress'],
-                        'isenrolled' => $programcourse['isenrolled']
+                        'isenrolled' => $programcourse['isenrolled'],
                     ]);
                 }
             }

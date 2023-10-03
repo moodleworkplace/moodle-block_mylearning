@@ -42,7 +42,7 @@ class program_tree_progress_exporter extends exporter {
             'context' => 'context',
             'user' => 'stdClass',
             'programtreeprogress' => program_tree_progress::class,
-            'programenrolledcourses' => 'stdclass[]?'
+            'programenrolledcourses' => 'stdclass[]?',
         ];
     }
 

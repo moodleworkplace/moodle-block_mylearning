@@ -50,8 +50,8 @@ class behat_block_mylearning extends behat_base {
         global $DB, $CFG;
         require_once($CFG->dirroot . '/my/lib.php');
         $page = my_get_page(null, MY_PAGE_PRIVATE);
-        if ($blocks = $DB->get_records('block_instances', array('parentcontextid' => context_system::instance()->id,
-            'pagetypepattern' => 'my-index'))) {
+        if ($blocks = $DB->get_records('block_instances', ['parentcontextid' => context_system::instance()->id,
+            'pagetypepattern' => 'my-index', ])) {
             foreach ($blocks as $block) {
                 if (is_null($block->subpagepattern) || $block->subpagepattern == $page->id) {
                     blocks_delete_instance($block);
@@ -98,6 +98,7 @@ class behat_block_mylearning extends behat_base {
             normalize-space(descendant::*[contains(concat(' ', normalize-space(@class), ' '), ' element-name ')]) = %locator%
             ]
 XPATH
+,
             ], true),
         ];
     }
