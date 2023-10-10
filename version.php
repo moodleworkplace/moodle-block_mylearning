@@ -26,11 +26,11 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component    = 'block_mylearning';
-$plugin->release      = '4.2';
-$plugin->version      = 2023053000;
+$plugin->release      = '4.2.3';
+$plugin->version      = 2023101000;
 $plugin->requires     = 2022041904.00;
 $plugin->maturity     = MATURITY_STABLE;
 $plugin->dependencies = [
     'tool_program' => 2022111500,
 ];
-$plugin->supported    = [400, 401];
+$plugin->supported    = [400, 402];
