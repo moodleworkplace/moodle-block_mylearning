@@ -24,16 +24,6 @@
  */
 
 /**
- * Get icon mapping for font-awesome.
- */
-function block_mylearning_get_fontawesome_icon_map() {
-    return [
-        'block_mylearning:t/circle' => 'fa-circle',
-        'block_mylearning:check-circle-o' => 'fa-check-circle-o',
-    ];
-}
-
-/**
  * Get the current user preferences that are available
  *
  * @return mixed Array representing current options along with defaults
