@@ -21,15 +21,15 @@ variables:
 #  DB: "mysqli"
 
 before_script:
-- export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE402R
+- export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE402S
 - . prepare-workplace $cibot_sshkey
 - cd $CI_PROJECT_DIR/..
-- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_wp.git
-- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_tenant.git
-- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-theme_workplace.git
-- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_program.git
-- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_certification.git
-- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-enrol_program.git
+- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_wp.git --branch $MOODLE_BRANCH
+- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_tenant.git --branch $MOODLE_BRANCH
+- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-theme_workplace.git --branch $MOODLE_BRANCH
+- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_program.git --branch $MOODLE_BRANCH
+- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_certification.git --branch $MOODLE_BRANCH
+- moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-enrol_program.git --branch $MOODLE_BRANCH
 - moodle-plugin-ci install --db-host="$DB_HOST" --no-init -vvv
 - php -S ${IPADDRESS}:8000 -t $CI_PROJECT_DIR/../moodle > /dev/null 2>&1 &
 - cd moodle
@@ -84,9 +84,9 @@ jobtest:
     - . check moodle-plugin-ci behat --suite default --profile chrome
     - . check-finish
 
-wp402s:
+wp402r:
   before_script:
-    - export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE402S
+    - export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE402R
   <<: *scriptshorttest
   except:
     - master
