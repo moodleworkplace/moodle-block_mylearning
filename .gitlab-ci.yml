@@ -1,4 +1,4 @@
-image: moodlehq/moodle-workplace-plugin-ci:8.0-ci4.1.5
+image: moodlehq/moodle-workplace-plugin-ci:8.1
 
 services:
 - postgres:13
@@ -8,10 +8,13 @@ services:
 
 variables:
   MOODLE_REPO: git@git.in.moodle.com:workplace/workplacedev.git
-  MOODLE_BRANCH_WORKPLACE402R: WORKPLACE_ROLLING_402
+  MOODLE_BRANCH_WORKPLACE404R: WORKPLACE_ROLLING_404
+  MOODLE_BRANCH_WORKPLACE404S: WORKPLACE_404
+  MOODLE_BRANCH_WORKPLACE403R: WORKPLACE_ROLLING_403
+  MOODLE_BRANCH_WORKPLACE403S: WORKPLACE_403
   MOODLE_BRANCH_WORKPLACE402S: WORKPLACE_402
   MOODLE_BRANCH_WORKPLACE401S: WORKPLACE_401
-  MOODLE_BRANCH_WORKPLACE400: WORKPLACE_400
+  MOODLE_BRANCH_WORKPLACE400S: WORKPLACE_400
   MOODLE_BEHAT_WDHOST: "http://selenium-standalone-chrome:4444/wd/hub"
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: ""
@@ -21,7 +24,7 @@ variables:
 #  DB: "mysqli"
 
 before_script:
-- export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE402S
+- export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE404R
 - . prepare-workplace $cibot_sshkey
 - cd $CI_PROJECT_DIR/..
 - moodle-plugin-ci add-plugin --clone git@git.in.moodle.com:workplace/moodle-tool_wp.git --branch $MOODLE_BRANCH
@@ -84,12 +87,48 @@ jobtest:
     - . check moodle-plugin-ci behat --suite default --profile chrome
     - . check-finish
 
-wp402r:
+wp404r:
   before_script:
-    - export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE402R
+    - export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE404R
   <<: *scriptshorttest
   except:
-    - master
+    - main
+    - tags
+    - /^WORKPLACE_\d+$/
+
+wp404s:
+  before_script:
+    - export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE404S
+  <<: *scriptshorttest
+  except:
+    - main
+    - tags
+    - /^WORKPLACE_\d+$/
+
+wp403r:
+  before_script:
+    - export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE403R
+  <<: *scriptshorttest
+  except:
+    - main
+    - tags
+    - /^WORKPLACE_\d+$/
+
+wp403s:
+  before_script:
+    - export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE403S
+  <<: *scriptshorttest
+  except:
+    - main
+    - tags
+    - /^WORKPLACE_\d+$/
+
+wp402s:
+  before_script:
+    - export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE402S
+  <<: *scriptshorttest
+  except:
+    - main
     - tags
     - /^WORKPLACE_\d+$/
 
@@ -98,16 +137,17 @@ wp401s:
     - export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE401S
   <<: *scriptshorttest
   except:
-    - master
+    - main
     - tags
     - /^WORKPLACE_\d+$/
 
-wp400:
+wp400s:
+  image: moodlehq/moodle-workplace-plugin-ci:8.0
   before_script:
-    - export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE400
     - export INCLUDERB=1
+    - export MOODLE_BRANCH=$MOODLE_BRANCH_WORKPLACE400S
   <<: *scriptshorttest
   except:
-    - master
+    - main
     - tags
     - /^WORKPLACE_\d+$/

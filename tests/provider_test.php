@@ -31,7 +31,7 @@ use core_privacy\tests\provider_testcase;
  * @author      2022 Odei Alba <odei.alba@moodle.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
  */
-class provider_test extends provider_testcase {
+final class provider_test extends provider_testcase {
 
     /**
      * setUp.
@@ -45,7 +45,7 @@ class provider_test extends provider_testcase {
      *
      * @return void
      */
-    public function test_export_user_preferences() {
+    public function test_export_user_preferences(): void {
         $user1 = self::getDataGenerator()->create_user();
         $context = context_system::instance();
 
@@ -54,9 +54,12 @@ class provider_test extends provider_testcase {
         $preferences = writer::with_context($context)->get_user_preferences('block_mylearning');
 
         // Test empty preferences.
-        $this->assertObjectNotHasAttribute('block_mylearning_status_filter', $preferences);
-        $this->assertObjectNotHasAttribute('block_mylearning_sort_filter', $preferences);
-        $this->assertObjectNotHasAttribute('block_mylearning_view_filter', $preferences);
+        // Use custom property validation instead of assertObjectNotHasProperty for
+        // now because we run CI for different versions of PHPUnit.
+        // Once all supported versions use PHPUnit 9.6, we are good to use assertObjectNotHasProperty.
+        $this->assertFalse(property_exists($preferences, 'block_mylearning_status_filter'));
+        $this->assertFalse(property_exists($preferences, 'block_mylearning_sort_filter'));
+        $this->assertFalse(property_exists($preferences, 'block_mylearning_view_filter'));
 
         // Test preferences with data.
         set_user_preference('block_mylearning_status_filter', 'notcompleted', $user1->id);
@@ -76,7 +79,7 @@ class provider_test extends provider_testcase {
     /**
      * Test provider::get_metadata
      */
-    public function test_get_metadata() {
+    public function test_get_metadata(): void {
         $collection = new collection('block_mylearning');
         $newcollection = provider::get_metadata($collection);
         $itemcollection = $newcollection->get_collection();

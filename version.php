@@ -33,4 +33,4 @@ $plugin->maturity     = MATURITY_STABLE;
 $plugin->dependencies = [
     'tool_program' => 2022111500,
 ];
-$plugin->supported    = [400, 402];
+$plugin->supported    = [400, 404];
