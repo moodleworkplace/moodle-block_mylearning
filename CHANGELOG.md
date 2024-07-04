@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.4.1 - 2024-07-08
+### Changed
+- Fixed icons
+- Bumped plugin support to 4.4
+- Add testing for 4.3 and 4.4
+
 ## 4.2.3 - 2023-10-10
 ### Changed
 - Coding style fixes
