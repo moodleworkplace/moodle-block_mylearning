@@ -30,7 +30,7 @@ use tool_program_generator;
  * @author      2022 Odei Alba <odei.alba@moodle.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or late
  */
-class api_test extends advanced_testcase {
+final class api_test extends advanced_testcase {
 
     /**
      * setUp.
